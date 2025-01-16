@@ -5,11 +5,9 @@ const schema = new Schema(
     {
         nodes: {
             doc: {
-                content: "inline*"
+                content: "text*"
             },
-            text: {
-                group: "inline"
-            }
+            text: {}
         }
     }
 )

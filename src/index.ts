@@ -1,5 +1,5 @@
 import { Schema } from "prosemirror-model"
-import { EditorState } from "prosemirror-state"
+import { EditorState, Transaction } from "prosemirror-state"
 
 
 const state = EditorState.create(
@@ -23,6 +23,7 @@ const state = EditorState.create(
     }
 )
 console.log(state.doc.content)
-const tx = state.tr.insertText("Hello, ProseMirror!")
+const tx = (new Transaction(state.doc))
+    .insertText("Hello, ProseMirror!")
 const next = state.apply(tx)
 console.log(next.doc.textContent)

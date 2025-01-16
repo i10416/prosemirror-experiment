@@ -32,4 +32,6 @@ const nextTx = next.tr.replace(0, 5, new Slice(
 ))
 const nextX2 = next.apply(nextTx)
 console.log(nextX2.doc.toJSON())
+const setNodeAttr = nextX2.tr.setNodeAttribute(0,"foo","bar")
+console.log(nextX2.apply(setNodeAttr))
 

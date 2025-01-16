@@ -1,4 +1,4 @@
-import { Schema, Node } from "prosemirror-model"
+import { Schema, Node, Slice, Fragment } from "prosemirror-model"
 import { EditorState } from "prosemirror-state"
 
 const schema = new Schema(
@@ -26,3 +26,10 @@ const forward = next.doc.toJSON()
 const back = Node.fromJSON(schema, forward)
 console.log(forward)
 console.log(back.toJSON())
+
+const nextTx = next.tr.replace(0, 5, new Slice(
+    Fragment.empty, 0, 0
+))
+const nextX2 = next.apply(nextTx)
+console.log(nextX2.doc.toJSON())
+

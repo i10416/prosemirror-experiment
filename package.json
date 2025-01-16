@@ -1,7 +1,7 @@
 {
-	"name": "frontend-bundle",
+	"name": "prosemirror-experiment-headless",
 	"version": "0.1.0",
-	"description": "",
+	"description": "Explore prosemirror API without UI concerns",
 	"main": "src/index.ts",
 	"type": "module",
 	"scripts": {

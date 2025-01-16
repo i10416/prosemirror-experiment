@@ -1,5 +1,5 @@
 {
-  description = "Mini CMS";
+  description = "Nix Flake for JavaScript Development";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   inputs.flake-parts.url = "github:hercules-ci/flake-parts";
   outputs =
@@ -26,11 +26,8 @@
           formatter = pkgs.nixfmt-rfc-style;
           devShells = {
             default = pkgs.mkShell {
-              name = "prosemirror Workspace";
+              name = "JavaScript Workspace";
               buildInputs = with pkgs; [
-                git
-                curl
-                unzip
                 pnpm
                 biome
               ];

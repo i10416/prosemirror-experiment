@@ -25,3 +25,20 @@ it("updates the DOM", () => {
     ist(view.dom.textContent, "barfoo")
 })
 ```
+
+## Details
+
+### Scenario A: Insert Text At the End In minimal ProseMirror editor
+
+- prosemirror-view
+  - DomObserver#flush() when user sets focus on input area(for some reason, it is invoked twice?)
+  - DomObserver#handleDOMChange(...) when user inputs a character in input area
+  - readDOMChange
+  - State#apply(tr)
+  - EditorView#dispatch
+  - EditorView#updateStateInner > if(updateSel) clause
+  - EditorView#updateStateInner > if(updateDoc) clause
+  - `redraw = false`  in `if (redraw || !this.docView.update)`
+  - EditorView#updateStateInner > work around clause > selectionToDOM
+  - NodeViewDesc#update
+  - `renderDescs(...)` mutates DOM

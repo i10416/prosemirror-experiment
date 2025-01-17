@@ -1,5 +1,5 @@
 import { Schema } from "prosemirror-model";
-import { EditorState } from "prosemirror-state";
+import { EditorState, TextSelection } from "prosemirror-state";
 import { EditorView } from "prosemirror-view";
 const schema = new Schema({
 	nodes: {
@@ -20,7 +20,12 @@ const schema = new Schema({
 const state = EditorState.create({
 	schema: schema,
 });
-const tx = state.tr.insertText("Hello, ProseMirror!");
+const tx = state.tr.insertText(
+	"This is a ProseMirror editor without plugins " +
+		"built mainly for understanding its data flow. " +
+		"I'm not sure why, but you need to hit `Enter` twice " +
+		"and move a cursor down when you are at the end of paragraph.",
+);
 const next = state.apply(tx);
 
 const view = new EditorView(document.getElementById("app"), {
@@ -32,10 +37,13 @@ const view = new EditorView(document.getElementById("app"), {
 				handleKeyDown: (view, event) => {
 					if (event.key == "Enter") {
 						const s = view.state;
-						const nextNode = s.selection.$to.parent.type.create();
-						const tr = s.tr.insert(s.selection.to + 1, nextNode);
-						const newState = s.apply(tr);
-						view.updateState(newState);
+						const nextNode = s.selection.$to.parent.type.createAndFill()!;
+						const to = s.selection.$to;
+						const tr = s.tr.insert(to.pos, nextNode);
+						const sel = TextSelection.create(tr.doc, to.pos + 1);
+						tr.setSelection(sel);
+						view.dispatch(tr);
+						return false;
 					}
 				},
 			},

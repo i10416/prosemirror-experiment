@@ -2,12 +2,11 @@
 # Explore ProseMirror
 
 ## About
-ProseMirror の挙動を理解するためのレポジトリ
+This repository serves as a sandbox to understand ProseMirror internal step by step
 
 ## Develop
 
-https://github.com/i10416/prosemirror-experiment/commit/293d340ce2e69f7267820ad183134c45fa4968d7 までは、UI を含まない
-コア部分の挙動の調査
+Until https://github.com/i10416/prosemirror-experiment/commit/293d340ce2e69f7267820ad183134c45fa4968d7, the code focused on ProseMirror core concept without UI concerns.
 
 
 ## References

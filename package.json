@@ -1,5 +1,5 @@
 {
-	"name": "prosemirror-experiment-headless",
+	"name": "prosemirror-experiment",
 	"version": "0.1.0",
 	"description": "Explore prosemirror API without UI concerns",
 	"main": "src/index.ts",

@@ -62,3 +62,35 @@ It is serialized into the following JSON.
     ]
 }
 ```
+
+## dispatchTransaction API
+
+dispatchTransaction API exposes each transaction to developers.
+
+Developers can use a limited set of information here.
+For example, it is difficult to find which keypress happens
+for this transaction. It requires plugins API in order to get
+original events.
+
+```js
+const view = new EditorView(document.getElementById("app"), {
+	state: next,
+	dispatchTransaction(transaction) {
+		const newState = view.state.apply(transaction);
+		view.updateState(newState);
+	}
+});
+```
+
+It seems new paragraph by `Enter` key is implemented by the following mechanism.
+
+- Editor starts with empty paragraph and the paragraph consumes input characters until `Enter` key
+- if keypress is `Enter`, it creates new paragraph node to the current one and moves selection(cursor) to the new paragraph node.
+
+
+### Question
+
+- Which data does ProseMirror Plugin have access to?
+  - events from DOM
+  - ???
+- Where is ProseMirror Plugin API specification or docs

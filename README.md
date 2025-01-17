@@ -2,13 +2,13 @@
 # Explore ProseMirror
 
 ## About
-ProseMirror の UI に依存しないコア部分の挙動を理解するためのレポジトリ
+ProseMirror の挙動を理解するためのレポジトリ
 
-以下のコマンドでエントリーポイントとなるスクリプトを実行できる.
+## Develop
 
-```sh
-npx vite build && node dist/index.js
-```
+https://github.com/i10416/prosemirror-experiment/commit/293d340ce2e69f7267820ad183134c45fa4968d7 までは、UI を含まない
+コア部分の挙動の調査
+
 
 ## References
 

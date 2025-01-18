@@ -1,0 +1,25 @@
+{
+	"name": "frontend",
+	"version": "0.1.0",
+	"description": "Explore prosemirror API",
+	"main": "src/index.ts",
+	"type": "module",
+	"scripts": {
+		"build": "vite build",
+		"type-check": "tsc --noEmit -p .",
+		"preview": "vite preview",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^5.7.3",
+		"vite": "^6.0.7"
+	},
+	"dependencies": {
+		"prosemirror-view": "^1.37.1",
+		"core": "workspace:../core",
+		"naive-new-block-plugin": "workspace:../naive-new-block-plugin"
+	}
+}

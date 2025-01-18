@@ -6,7 +6,44 @@ settings:
 
 importers:
 
-  .:
+  .: {}
+
+  modules/core:
+    dependencies:
+      prosemirror-model:
+        specifier: ^1.24.1
+        version: 1.24.1
+      prosemirror-state:
+        specifier: ^1.4.3
+        version: 1.4.3
+    devDependencies:
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vite:
+        specifier: ^6.0.7
+        version: 6.0.7(yaml@2.7.0)
+
+  modules/frontend:
+    dependencies:
+      core:
+        specifier: workspace:../core
+        version: link:../core
+      naive-new-block-plugin:
+        specifier: workspace:../naive-new-block-plugin
+        version: link:../naive-new-block-plugin
+      prosemirror-view:
+        specifier: ^1.37.1
+        version: 1.37.1
+    devDependencies:
+      typescript:
+        specifier: ^5.7.3
+        version: 5.7.3
+      vite:
+        specifier: ^6.0.7
+        version: 6.0.7(yaml@2.7.0)
+
+  modules/naive-new-block-plugin:
     dependencies:
       prosemirror-model:
         specifier: ^1.24.1
@@ -23,7 +60,7 @@ importers:
         version: 5.7.3
       vite:
         specifier: ^6.0.7
-        version: 6.0.7
+        version: 6.0.7(yaml@2.7.0)
 
 packages:
 
@@ -366,6 +403,11 @@ packages:
       yaml:
         optional: true
 
+  yaml@2.7.0:
+    resolution: {integrity: sha512-+hSoy/QHluxmC9kCIJyL/uyFmLmc+e5CFR5Wa+bpIhIj85LVb9ZH2nVnqrHoSvKogwODv0ClqZkmiSSaIH5LTA==}
+    engines: {node: '>= 14'}
+    hasBin: true
+
 snapshots:
 
   '@esbuild/aix-ppc64@0.24.2':
@@ -594,10 +636,14 @@ snapshots:
 
   typescript@5.7.3: {}
 
-  vite@6.0.7:
+  vite@6.0.7(yaml@2.7.0):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
       rollup: 4.30.1
     optionalDependencies:
       fsevents: 2.3.3
+      yaml: 2.7.0
+
+  yaml@2.7.0:
+    optional: true

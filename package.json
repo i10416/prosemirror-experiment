@@ -2,22 +2,18 @@
 	"name": "prosemirror-experiment",
 	"version": "0.1.0",
 	"description": "Explore prosemirror API without UI concerns",
-	"main": "src/index.ts",
 	"type": "module",
 	"packageManager": "pnpm@9.15.3",
+	"engines": {
+		"pnpm": ">=9.15.0"
+	},
 	"scripts": {
+		"frontend": "pnpm -F \"frontend\"",
+		"core": "pnpm -F \"core\"",
+		"naive-new-block-plugin": "pnpm -F \"naive-new-block-plugin\"",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"typescript": "^5.7.3",
-		"vite": "^6.0.7"
-	},
-	"dependencies": {
-		"prosemirror-model": "^1.24.1",
-		"prosemirror-state": "^1.4.3",
-		"prosemirror-view": "^1.37.1"
-	}
+	"author": "i10416",
+	"license": "MIT"
 }

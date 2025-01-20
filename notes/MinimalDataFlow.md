@@ -42,3 +42,22 @@ it("updates the DOM", () => {
   - EditorView#updateStateInner > work around clause > selectionToDOM
   - NodeViewDesc#update
   - `renderDescs(...)` mutates DOM
+
+### Selection
+
+- bootstrap phase
+  - connectSelection -> register DOMObserver#onSelectionChange
+- on focus
+  - connectSelection
+  - onSelectionChange
+  - flush
+      - readDOMChange
+      - selectionFromDOM
+      - selection2dom
+      - setCurSelection
+      - connectSelection
+- DOMObserver#start
+  - connectSelection
+- right/left allow
+  - selectHorizontally
+    - check endOfTextBlock
